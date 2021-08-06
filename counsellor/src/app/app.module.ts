@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { ToastrModule } from 'ngx-toastr';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { GroupsComponent } from './groups/groups.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CounsellorComponent,
     HomeComponent,
     SidebarComponent,
+    GroupsComponent,
+    AppointmentsComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

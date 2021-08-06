@@ -3,9 +3,15 @@ import { ClientsComponent } from './clients/clients.component';
 import { SignUpComponent } from './clients/sign-up/sign-up.component';
 import { SignInComponent } from './clients/sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
+import { GroupsComponent } from './groups/groups.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
+    { path: 'groups', component: GroupsComponent},
+    { path: 'appointments', component: AppointmentsComponent},
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    
     {
         path: 'signup', component: ClientsComponent,
         children: [{ path: '', component: SignUpComponent }]
