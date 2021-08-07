@@ -1,32 +1,41 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+
+const AUTH_API = "http://127.0.0.1:8000/";
+
+
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
-  
 export class UserService {
-  [x: string]: any;
-  readonly rootUrl = 'http://127.0.0.1:8000/';
   constructor(private http: HttpClient) { }
 
-  registerUser(user: User) {
-    const body: User = {
-      UserName: user.UserName,
-      Password: user.Password,
-      email: user.email,
-      FirstName: user.FirstName,
-      LastName: user.LastName
-    }
-    var reqHeader = new HttpHeaders({ 'No-Auth': 'True' });
-    return this.http.post(this.rootUrl + '/register', body, { headers: reqHeader });
+  login(email: string, password: string): Observable<any> {
+    return this.http.post(AUTH_API + 'login', {
+      email,
+      password
+    }, httpOptions);
   }
 
-  userAuthentication(userName: string, password: string) {
-    var data = "email=" + userName + "&password=" + password + "&grant_type=password";
-    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded', 'No-Auth': 'True' });
-    return this.http.post(this.rootUrl + '/login', data, { headers: reqHeader });
+  register(username: string, email: string, firstName: string, lastName: string, password: string): Observable<any> {
+    return this.http.post(AUTH_API + 'register', {
+      username,
+      email,
+      firstName,
+      lastName,
+      password,
+    }, httpOptions);
+  }
+
+  signOut(): void {
+    window.sessionStorage.clear();
   }
 
 }

@@ -16,7 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { ToastrModule } from 'ngx-toastr';
-import { AuthGuard } from './auth/auth.guard';
+// import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { AuthGuard } from './auth/auth.guard';
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, AuthGuard],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/shared/user.service';
-import { User } from '../../shared/user.model';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -10,38 +8,38 @@ import { User } from '../../shared/user.model';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  user!: User;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  form: any = {
+    username: null,
+    email: null,
+    firstName: null,
+    lastName: null,
+    password: null,
 
-  constructor(private userService: UserService, private toastr: ToastrService) { }
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  ngOnInit() {
-    this.resetForm();
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
   }
 
-  resetForm(form?: NgForm) {
-    if (form != null)
-      form.reset();
-    this.user = {
-      UserName: '',
-      Password: '',
-      Email: '',
-      FirstName: '',
-      LastName: ''
-    }
-  }
+  onSubmit(): void {
+    const { password, firstName, lastName, username, email, } = this.form;
 
-
-  OnSubmit(form: NgForm) {
-    this.userService.registerUser(form.value)
-      .subscribe((data: any) => {
-        if (data.Succeeded == true) {
-          this.resetForm(form);
-          this.toastr.success('User registration successful');
-        }
-        else
-          this.toastr.error(data.Errors[0]);
-      });
+    this.userService.register(username, email, firstName, lastName, password).subscribe(
+      (      data: any) => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      (      err: { error: { message: string; }; }) => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
 
 }
