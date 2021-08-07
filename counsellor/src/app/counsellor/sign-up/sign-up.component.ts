@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/shared/user.service';
 import { User } from '../../shared/user.model';
-
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -18,7 +17,6 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
     this.resetForm();
   }
-
   resetForm(form?: NgForm) {
     if (form != null)
       form.reset();
@@ -30,8 +28,6 @@ export class SignUpComponent implements OnInit {
       LastName: ''
     }
   }
-
-
   OnSubmit(form: NgForm) {
     this.userService.registerUser(form.value)
       .subscribe((data: any) => {
@@ -43,5 +39,4 @@ export class SignUpComponent implements OnInit {
           this.toastr.error(data.Errors[0]);
       });
   }
-
 }

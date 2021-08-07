@@ -1,7 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
+=======
+import { UserService } from '../../shared/user.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+>>>>>>> master
 
 @Component({
   selector: 'app-sign-in',

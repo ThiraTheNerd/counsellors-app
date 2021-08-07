@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -20,6 +22,17 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { GroupsComponent } from './groups/groups.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 
+import { NavbarComponent } from './navbar/navbar.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
+
+import { AboutComponent } from './about/about.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ContactComponent } from './contact/contact.component';
+import { ClientHomeComponent } from './client-home/client-home.component';
+
+
+
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -32,6 +45,13 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     SidebarComponent,
     GroupsComponent,
     AppointmentsComponent,
+    NavbarComponent,
+    ClientProfileComponent,
+    AboutComponent,
+    PagenotfoundComponent,
+    ContactComponent,
+    ClientHomeComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -40,8 +60,13 @@ import { AppointmentsComponent } from './appointments/appointments.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
+    NgProgressModule.forRoot(),
+    NgProgressHttpClientModule
   ],
   providers: [UserService],
+    RouterModule.forRoot(appRoutes)
+  ],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
