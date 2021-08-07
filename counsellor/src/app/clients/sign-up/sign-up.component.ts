@@ -12,40 +12,36 @@ import { User } from '../../shared/user.model';
 export class SignUpComponent implements OnInit {
   user!: User;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  form: any = {
+    username: null,
+    email: null,
+    firstName: null,
+    lastName: null,
+    password: null,
+    role: [],
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  constructor(private userService: UserService, private toastr: ToastrService) { }
+  constructor(private userService: UserService) { }
 
-  ngOnInit() {
-    this.resetForm();
-  }
+  ngOnInit(): void {
 
-  resetForm(form?: NgForm) {
-    if (form != null)
-      form.reset();
-    this.user = {
-      UserName: '',
-      Password: '',
-<<<<<<< HEAD
-      Email: '',
-=======
-      email: '',
->>>>>>> master
-      FirstName: '',
-      LastName: ''
-    }
-  }
+  onSubmit(): void {
+    const { username, email, lastName, firstName, password } = this.form;
 
-
-  OnSubmit(form: NgForm) {
-    this.userService.registerUser(form.value)
-      .subscribe((data: any) => {
-        if (data.Succeeded == true) {
-          this.resetForm(form);
-          this.toastr.success('User registration successful');
-        }
-        else
-          this.toastr.error(data.Errors[0]);
-      });
+    this.userService.register(username, email, lastName, firstName, password).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
 
 }

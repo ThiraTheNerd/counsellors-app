@@ -1,13 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
-=======
-import { UserService } from '../../shared/user.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
->>>>>>> master
+import { TokenStorageService } from 'src/app/taken-storage.service';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -15,20 +11,46 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  isLoginError: boolean = false;
-  constructor(private userService: UserService, private router: Router) { }
+  form: any = {
+    email: null,
+    password: null
+  };
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
 
-  ngOnInit() {
+  constructor(private userService: UserService, private tokenStorage: TokenStorageService) { }
+
+  ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
   }
 
-  OnSubmit(userName: any, password: any) {
-    this.userService.userAuthentication(userName, password).subscribe((data: any) => {
-      localStorage.setItem('userToken', data.access_token);
-      this.router.navigate(['/home']);
-    },
-      (err: HttpErrorResponse) => {
-        this.isLoginError = true;
-      });
+  onSubmit(): void {
+    const { email, password } = this.form;
+
+    this.userService.login(email, password).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().roles;
+        this.reloadPage();
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+      }
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 
 }

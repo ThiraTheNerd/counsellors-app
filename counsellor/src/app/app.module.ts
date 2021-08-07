@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { ToastrModule } from 'ngx-toastr';
+
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { GroupsComponent } from './groups/groups.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
@@ -31,8 +32,6 @@ import { ContactComponent } from './contact/contact.component';
 import { ClientHomeComponent } from './client-home/client-home.component';
 
 
-
-import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -66,7 +65,7 @@ import { AuthGuard } from './auth/auth.guard';
   providers: [UserService],
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, AuthGuard],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
