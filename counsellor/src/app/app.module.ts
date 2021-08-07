@@ -18,6 +18,10 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { ToastrModule } from 'ngx-toastr';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { GroupsComponent } from './groups/groups.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 
@@ -38,6 +42,9 @@ import { AuthGuard } from './auth/auth.guard';
     SignUpComponent,
     CounsellorComponent,
     HomeComponent,
+    SidebarComponent,
+    GroupsComponent,
+    AppointmentsComponent,
     NavbarComponent,
     ClientProfileComponent,
     AboutComponent,

@@ -25,7 +25,11 @@ export class SignUpComponent implements OnInit {
     this.user = {
       UserName: '',
       Password: '',
+<<<<<<< HEAD
+      Email: '',
+=======
       email: '',
+>>>>>>> master
       FirstName: '',
       LastName: ''
     }
