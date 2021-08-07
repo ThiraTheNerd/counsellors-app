@@ -27,7 +27,6 @@ export class SignUpComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-  }
 
   onSubmit(): void {
     const { username, email, lastName, firstName, password } = this.form;

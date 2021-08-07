@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
 import { TokenStorageService } from 'src/app/taken-storage.service';
 
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -51,4 +52,5 @@ export class SignInComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+
 }
