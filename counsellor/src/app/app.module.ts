@@ -28,6 +28,7 @@ import { ClientHomeComponent } from './client-home/client-home.component';
 
 
 
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,9 @@ import { ClientHomeComponent } from './client-home/client-home.component';
     NgProgressHttpClientModule
   ],
   providers: [UserService],
+    RouterModule.forRoot(appRoutes)
+  ],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
