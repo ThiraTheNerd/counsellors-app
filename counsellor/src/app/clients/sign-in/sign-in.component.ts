@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
 import { TokenStorageService } from 'src/app/taken-storage.service';
@@ -19,12 +19,13 @@ export class SignInComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private userService: UserService, private tokenStorage: TokenStorageService) { }
+  constructor(private userService: UserService, private viewContainer: ViewContainerRef, private router: Router, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+      
     }
   }
 
@@ -38,9 +39,10 @@ export class SignInComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        this.router.navigate(['/home']);
+    
       },
+      
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
