@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/user.service';
-
-
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -20,6 +18,7 @@ export class SignUpComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+
 
   constructor(private userService: UserService) { }
 
@@ -41,5 +40,6 @@ export class SignUpComponent implements OnInit {
       }
     );
   }
+
 
 }
