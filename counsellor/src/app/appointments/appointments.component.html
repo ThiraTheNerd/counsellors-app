@@ -1,1 +1,136 @@
-<h1 style="margin-left: 50%;">New Appointments</h1>
+<div class="row">
+  <div class="col-md-4">
+    <!DOCTYPE html>
+    <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+    <html lang="en" dir="ltr">
+
+    <head>
+      <meta charset="UTF-8">
+      <title>Counsellor</title>
+      <!-- Boxicons CDN Link -->
+      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+      <div class="sidebar">
+        <div class="logo-details">
+          <img src="https://img.icons8.com/ios-filled/50/000000/mental-health.png" />
+          <span class="logo_name" style="font-size:30px;">Client</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/home" class="active">
+              <img src="https://img.icons8.com/material-sharp/24/000000/home.png" />
+              <span class="links_name">Home</span>
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="/appointments">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/property-time.png" />
+              <span class="links_name">Book Session</span>
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="#">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/list--v1.png" />
+              <span class="links_name">Group Members</span>
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="/groups">
+              <img src="https://img.icons8.com/android/24/000000/google-groups.png" />
+              <span class="links_name">Prescribed Medication</span>
+            </a>
+          </li>
+          <br>
+          <!-- <li>
+        <a href="#">
+          <img src="https://img.icons8.com/fluency-systems-filled/48/000000/file-prescription.png"/>
+          <span class="links_name">Prescribe Medicine</span>
+        </a>
+      </li> -->
+          <br>
+          <br>
+          <!-- <li>
+        <a href="#">
+          <img src="https://img.icons8.com/ios-glyphs/30/000000/overtime.png" />
+          <span class="links_name">Schedule Meeting</span>
+        </a>
+      </li> -->
+          <br>
+          <br>
+          <li class="log_out">
+            <a href="#">
+              <img src="https://img.icons8.com/material-sharp/24/000000/logout-rounded.png" />
+              <span class="links_name">Sign out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function () {
+          sidebar.classList.toggle("active");
+          if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+          } else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+
+      </script>
+    </body>
+
+    </html>
+  </div>
+  <div class="col-md-8" style="margin-top:50px">
+
+
+
+    <div class="container">
+      <form (ngSubmit)='bookSession()' #appointmentForm='ngForm'>
+        <div class="form-group">
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" class="form-control" required [(ngModel)]="bookAppointment.date" name="date"
+              #date='ngModel'>
+            <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
+              <p>Date is required</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="timeStart">From</label>
+          <input type="text" required class="form-control" id="timeStart" [(ngModel)]="bookAppointment.timeStart"
+            name="timeStart" #timeStart='ngModel'>
+          <!-- Dispaly {{newGoal.name}} -->
+          <div [hidden]="timeStart.valid || timeStart.pristine" class="alert alert-danger">
+            <p>Time is required</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="timeEnd">To</label>
+          <input type="text" required class="form-control" id="timeEnd" [(ngModel)]="bookAppointment.timeEnd"
+            name="timeEnd" #ttimeEnd='ngModel'>
+          <!-- Dispaly {{newGoal.name}} -->
+          <!-- <div [hidden]="timeEnd.valid || timeEnd.pristine" class="alert alert-danger">
+                <p>Time is required</p>
+            </div> -->
+        </div>
+        <div class="form-group">
+          <label for="message">message</label>
+          <textarea class="form-control" id="message" rows="4" required [(ngModel)]="bookAppointment.message"
+            name="message" #message='ngModel'></textarea>
+          <div [hidden]="message.valid || message.pristine" class="alert alert-danger">
+            <p>Issue description is required</p>
+          </div>
+        </div><br>
+        <button type="submit" (click)="bookSession()" class="btn btn-success">Book</button>
+      </form>
+    </div>
+  </div>
+</div>

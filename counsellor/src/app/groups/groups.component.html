@@ -1,1 +1,163 @@
-<h1 style="text-align: center;">Groups</h1>
+<div class="row">
+  <div class="col-md-4">
+    <!DOCTYPE html>
+    <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+    <html lang="en" dir="ltr">
+
+    <head>
+      <meta charset="UTF-8">
+      <title>Counsellor</title>
+      <!-- Boxicons CDN Link -->
+      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+      <div class="sidebar">
+        <div class="logo-details">
+          <img src="https://img.icons8.com/ios-filled/50/000000/mental-health.png" />
+          <span class="logo_name" style="font-size:30px;">Counsellor</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="/home" class="active">
+              <img src="https://img.icons8.com/material-sharp/24/000000/home.png" />
+              <span class="links_name">Home</span>
+            </a>
+          </li>
+          <br>
+
+          <li>
+            <a href="/appointments">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/property-time.png" />
+              <span class="links_name">Appointments</span>
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="#">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/list--v1.png" />
+              <span class="links_name">Client's list</span>
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="/groups">
+              <img src="https://img.icons8.com/android/24/000000/google-groups.png" />
+              <span class="links_name">Create Groups</span>
+            </a>
+          </li>
+          <br>
+
+          <li>
+            <a href="#">
+              <img src="https://img.icons8.com/fluency-systems-filled/48/000000/file-prescription.png" />
+              <span class="links_name">Prescribe Medicine</span>
+            </a>
+          </li>
+          <br>
+          <br>
+          <li>
+            <a href="#">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/overtime.png" />
+              <span class="links_name">Schedule Meeting</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+
+      <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function () {
+          sidebar.classList.toggle("active");
+          if (sidebar.classList.contains("active")) {
+            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+          } else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+
+      </script>
+
+    </body>
+
+    </html>
+
+  </div>
+  <div class="col-md-8" style="margin-top:50px">
+    <div class="container">
+
+      <form (ngSubmit)='addGroup()' #appointmentForm='ngForm'>
+        <div class="form-group">
+          <div class="form-group">
+            <label for="name">Group Name</label>
+            <input type="name" id="name" class="form-control" required [(ngModel)]="newGroup.name" name="name"
+              #name='ngModel'>
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+              <p>Group name is required</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category">Description</label>
+          <textarea class="form-control" id="description" rows="4" required [(ngModel)]="newGroup.description"
+            name="description" #description='ngModel'></textarea>
+          <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+            <p>Category is required</p>
+          </div>
+        </div>
+
+
+
+        <p>Category is required</p>
+
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Suicidal
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Depression
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Stress
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Marriage conflict
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Unemployment
+          </label>
+        </div>
+
+
+
+
+        <br>
+        <button type="submit" class="btn btn-success">Create</button>
+      </form>
+
+
+
+
+    </div>
+
+  </div>
+</div>

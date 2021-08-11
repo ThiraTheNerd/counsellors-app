@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col s8 offset-s2">
       <div class="card grey lighten-2">
@@ -20,4 +20,21 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Time start</th>
+    <th>Time End</th>
+    <th>Message</th>
+  </tr>
+  <tr *ngFor="let appoint of appointmentlist">
+    <td>{{appoint.date}}</td>
+    <td>{{appoint.timeStart}}</td>
+    <td>{{appoint.timeEnd}}</td>
+    <td>{{appoint.message}}</td>
+  </tr>
+</table>

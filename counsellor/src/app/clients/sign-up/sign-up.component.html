@@ -40,10 +40,21 @@
       <label data-error="Required field!">LastName</label>
     </div>
 
+    <div class="form-group mb-4 text-left">
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" name="role" id="counsellor" [(ngModel)]="form.role"
+          value="is_counsellor" mdbInput required>
+        <label class="custom-control-label" for="counsellor"><span></span> Counsellor</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" name="role" id="client" [(ngModel)]="form.role"
+          value="is_client" mdbInput required>
+        <label class="custom-control-label" for="client"><span></span> Client</label>
+      </div>
+    </div>
+
     <div class="row">
       <div class="input-field col s12">
         <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
       </div>
     </div>
-
-  </form>

@@ -1,41 +1,43 @@
-    <form class="text-center border border-light p-5" *ngIf="!isLoggedIn" name="form"
-      (ngSubmit)="f.form.valid && OnSubmit()" #f="ngForm" novalidate>
+<form class="text-center border border-light p-5" name="form" (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm"
+  novalidate>
 
 
 
-      <div class="form-group">
-        <input type="text" class="form-control mb-4" name="username" placeholder="username" [(ngModel)]="form.username"
-          required #username="ngModel" />
-        <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
-          Username is required!
-        </div>
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" class="form-control mb-4" placeholder="Password" name="password"
-          [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
-        <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">
-            Password must be at least 8 characters
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <a>
-          <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-        </a>
-      </div>
-      <div class="form-group">
-        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
-          Signin failed: {{ errorMessage }}
-        </div>
-      </div>
-      <p>Not a member?
-        <a routerLink="/signup">Signup
-        </a>
-      </p>
-    </form>
-    <div class="alert alert-success" *ngIf="isLoggedIn">
-      Signed in as {{ roles }}.
+  <div class="form-group">
+    <input type="text" class="form-control mb-4" name="username" placeholder="email" [(ngModel)]="form.email" required
+      #email="ngModel" />
+    <div class="alert alert-danger" role="alert" *ngIf="email.errors && signInForm.submitted">
+      Email is required!
     </div>
+  </div>
+
+
+  <div class="form-group">
+    <input type="password" class="form-control" class="form-control mb-4" placeholder="Password" name="password"
+      [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+    <div class="alert alert-danger" role="alert" *ngIf="password.errors && signInForm.submitted">
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">
+        Password must be at least 8 characters
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn-large btn-submit" type="submit">Login</button>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="alert alert-danger" role="alert" *ngIf="signInForm.submitted && isLoginFailed">
+      Signin failed: {{ errorMessage }}
+    </div>
+  </div>
+  <p>Dont have an account?
+    <a routerLink="/signup">Signup
+    </a>
+  </p>
 </form>

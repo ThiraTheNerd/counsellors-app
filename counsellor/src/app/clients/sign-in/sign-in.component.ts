@@ -1,5 +1,5 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
 import { TokenStorageService } from 'src/app/taken-storage.service';
@@ -20,7 +20,9 @@ export class SignInComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private userService: UserService, private viewContainer: ViewContainerRef, private router: Router, private tokenStorage: TokenStorageService) { }
+  constructor(private userService: UserService,
+    private router: Router,
+    private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -28,9 +30,14 @@ export class SignInComponent implements OnInit {
       this.roles = this.tokenStorage.getUser().roles;
       
     }
+
+    this.form = {
+      email: '',
+      password: '',
+    }
   }
 
-  onSubmit(): void {
+  onSubmit(signInForm: NgForm): void {
     const { email, password } = this.form;
 
     this.userService.login(email, password).subscribe(
@@ -38,9 +45,14 @@ export class SignInComponent implements OnInit {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.router.navigate(['/home']);
+        // this.isLoginFailed = false;
+        // this.isLoggedIn = true;
+        if ((data['roles']) === "is_client") {
+          this.router.navigate(['client-home']);
+        }
+        else {
+          this.router.navigate(['sidebar']);
+        }
     
       },
       

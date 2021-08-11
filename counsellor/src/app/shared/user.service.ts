@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 const AUTH_API = "http://127.0.0.1:8000/";
@@ -16,7 +17,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient) { }
+  // private loggedIn: boolean = false;
+
+  constructor(private http: HttpClient, private router: Router,) { }
 
   login(email: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'login', {
@@ -25,18 +28,21 @@ export class UserService {
     }, httpOptions);
   }
 
-  register(username: string, email: string, firstName: string, lastName: string, password: string): Observable<any> {
+  register(username: string, email: string, firstName: string, lastName: string, password: string, role:string): Observable<any> {
     return this.http.post(AUTH_API + 'register', {
       username,
       email,
       firstName,
       lastName,
       password,
+      role,
     }, httpOptions);
   }
 
   signOut(): void {
-    window.sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/']);
+
   }
   
 

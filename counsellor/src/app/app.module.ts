@@ -31,6 +31,10 @@ import { AboutComponent } from './about/about.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ContactComponent } from './contact/contact.component';
 import { ClientHomeComponent } from './client-home/client-home.component';
+import { authInterceptorProviders } from './auth/auth.interceptor';
+import { CounsellorServiceService } from './counsellor/counsellor-service.service';
+import { ClientlistComponent } from './counsellor/clientlist/clientlist.component';
+import { MedicationComponent } from './medication/medication.component';
 
 
 
@@ -51,6 +55,10 @@ import { ClientHomeComponent } from './client-home/client-home.component';
     PagenotfoundComponent,
     ContactComponent,
     ClientHomeComponent,
+    ClientlistComponent,
+    MedicationComponent,
+    
+    
 
   ],
   imports: [
@@ -63,7 +71,7 @@ import { ClientHomeComponent } from './client-home/client-home.component';
     NgProgressModule.forRoot(),
     NgProgressHttpClientModule
   ],
-  providers: [UserService],
+  providers: [authInterceptorProviders],
 
   bootstrap: [AppComponent]
 })

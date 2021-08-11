@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Appointments, Users } from '../shared/user.model';
+import { CounsellorServiceService } from './counsellor-service.service';
 
 @Component({
   selector: 'app-counsellor',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounsellorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private counsellorService: CounsellorServiceService,) { }
 
-  ngOnInit(): void {
+  appointmentlist!: Appointments[];
+  userList!: Users[];
+
+  ngOnInit() {
+    this.counsellorService.getappointments().
+      subscribe
+      (
+        data => {
+          this.appointmentlist = data;
+
+        })
+    
+    
+    
+  }
   }
 
-}

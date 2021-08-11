@@ -11,6 +11,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ClientHomeComponent } from './client-home/client-home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ClientlistComponent } from './counsellor/clientlist/clientlist.component';
 
 
 export const appRoutes: Routes = [
@@ -18,6 +19,7 @@ export const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     
     { path: 'sidebar', component: SidebarComponent },
+
     { path: '', redirectTo: '/home', pathMatch: 'full' },
 
     {
@@ -26,22 +28,32 @@ export const appRoutes: Routes = [
     },
     {
         path: 'login', component: ClientsComponent,
+
         children: [{ path: '', component: SignInComponent }]
     },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'client-profile', component: ClientProfileComponent },
 
+    { path: 'client-profile', component: ClientProfileComponent },
     
     { path: 'groups', component: GroupsComponent },
+
     { path: 'appointments', component: AppointmentsComponent },
+
+    { path: 'clientslist', component: ClientlistComponent },
 
     { path: 'about', component: AboutComponent },
 
     { path: 'contact', component: ContactComponent },
 
+    { path: 'client-home', component: ClientHomeComponent },
+
+
+    { path: 'logout', component: HomeComponent },
+
+
     { path: '**', component: PagenotfoundComponent },
 
-    { path: 'client-home', component: ClientHomeComponent },
+    
 
     
 
