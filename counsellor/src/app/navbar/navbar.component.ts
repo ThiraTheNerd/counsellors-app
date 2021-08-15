@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenStorageService } from '../taken-storage.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,15 +11,31 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  isLoggedIn = false;
 
-  constructor(private http: HttpClient, private router: Router,) { }
+  username!: string;
+
+
+  constructor(private http: HttpClient,
+    private router: Router,
+    private tokenStorageService: TokenStorageService
+    
+  ) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+
+      this.username = user.username;
+      
+    }
   }
 
   signOut(): void {
     localStorage.clear();
-    this.router.navigate(['home']);
+    this.router.navigate(['/']);
 
   }
   

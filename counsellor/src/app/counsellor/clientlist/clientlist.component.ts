@@ -22,6 +22,8 @@ export class ClientlistComponent implements OnInit {
           this.userList = data;
 
         })
+    
+  
   }
 
 }

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientHomeComponent implements OnInit {
 
+ 
+
+  username: any;
+
   constructor() { }
 
   ngOnInit(): void {
-  }
 
+    this.username = localStorage.getItem('username')
+
+  }
 }

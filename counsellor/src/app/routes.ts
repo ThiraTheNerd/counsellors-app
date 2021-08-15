@@ -12,6 +12,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ClientHomeComponent } from './client-home/client-home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ClientlistComponent } from './counsellor/clientlist/clientlist.component';
+import { MedicationComponent } from './medication/medication.component';
 
 
 export const appRoutes: Routes = [
@@ -46,6 +47,8 @@ export const appRoutes: Routes = [
     { path: 'contact', component: ContactComponent },
 
     { path: 'client-home', component: ClientHomeComponent },
+
+    { path: 'medic', component: MedicationComponent },
 
 
     { path: 'logout', component: HomeComponent },

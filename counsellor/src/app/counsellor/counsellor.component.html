@@ -24,17 +24,35 @@
 
 
 
-<table>
+<!-- <table>
   <tr>
+    <th>Name</th>
     <th>Date</th>
     <th>Time start</th>
     <th>Time End</th>
     <th>Message</th>
   </tr>
   <tr *ngFor="let appoint of appointmentlist">
+    <td>{{appoint.user}}</td>
     <td>{{appoint.date}}</td>
     <td>{{appoint.timeStart}}</td>
     <td>{{appoint.timeEnd}}</td>
     <td>{{appoint.message}}</td>
+  </tr>
+</table> -->
+<table class="table table-striped">
+  <tr>
+    <th scope="col">Date</th>
+    <th scope="col">Time start</th>
+    <th scope="col">Time End</th>
+    <th scope="col">Message</th>
+  </tr>
+  <tr *ngFor="let appoint of appointmentlist">
+    <td>{{appoint.date}}</td>
+    <td>{{appoint.timeStart}}</td>
+    <td>{{appoint.timeEnd}}</td>
+    <td>{{appoint.message}}</td>
+    <td><button type="button" class="btn btn-info">View</button></td>
+    <!-- <td><button type="button" class="btn btn-info">Meet</button></td> -->
   </tr>
 </table>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Appointments, Users } from '../shared/user.model';
+import { Appointment,Users } from '../shared/user.model';
 import { CounsellorServiceService } from './counsellor-service.service';
 
 @Component({
@@ -11,8 +11,8 @@ export class CounsellorComponent implements OnInit {
 
   constructor(private counsellorService: CounsellorServiceService,) { }
 
-  appointmentlist!: Appointments[];
-  userList!: Users[];
+  appointmentlist!: Appointment[];
+  // userList!: Users[];
 
   ngOnInit() {
     this.counsellorService.getappointments().

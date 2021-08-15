@@ -92,7 +92,26 @@
 
 
     <div class="container">
+      <div class="form-group">
+        <!-- <label for="timeStart">Name</label>
+        <input type="text" required class="form-control" id="user" [(ngModel)]="bookAppointment.user"
+          name="user" #user='ngModel'> -->
+        <!-- Dispaly {{newGoal.name}} -->
+        <div [hidden]="timeStart.valid || timeStart.pristine" class="alert alert-danger">
+          <p>Time is required</p>
+        </div>
+      </div>
       <form (ngSubmit)='bookSession()' #appointmentForm='ngForm'>
+        <div class="form-group">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input type="number" id="id" class="form-control" required [(ngModel)]="bookAppointment.id" name="id"
+              #id='ngModel'>
+            <!-- <div [hidden]="id.valid || date.pristine" class="alert alert-danger">
+              <p>Date is required</p>
+            </div> -->
+          </div>
+        </div>
         <div class="form-group">
           <div class="form-group">
             <label for="date">Date</label>
@@ -105,7 +124,7 @@
         </div>
         <div class="form-group">
           <label for="timeStart">From</label>
-          <input type="text" required class="form-control" id="timeStart" [(ngModel)]="bookAppointment.timeStart"
+          <input type="time" required class="form-control" id="timeStart" [(ngModel)]="bookAppointment.timeStart"
             name="timeStart" #timeStart='ngModel'>
           <!-- Dispaly {{newGoal.name}} -->
           <div [hidden]="timeStart.valid || timeStart.pristine" class="alert alert-danger">
@@ -114,7 +133,7 @@
         </div>
         <div class="form-group">
           <label for="timeEnd">To</label>
-          <input type="text" required class="form-control" id="timeEnd" [(ngModel)]="bookAppointment.timeEnd"
+          <input type="time" required class="form-control" id="timeEnd" [(ngModel)]="bookAppointment.timeEnd"
             name="timeEnd" #ttimeEnd='ngModel'>
           <!-- Dispaly {{newGoal.name}} -->
           <!-- <div [hidden]="timeEnd.valid || timeEnd.pristine" class="alert alert-danger">

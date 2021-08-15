@@ -57,6 +57,7 @@ import { MedicationComponent } from './medication/medication.component';
     ClientHomeComponent,
     ClientlistComponent,
     MedicationComponent,
+  
     
     
 
@@ -71,7 +72,7 @@ import { MedicationComponent } from './medication/medication.component';
     NgProgressModule.forRoot(),
     NgProgressHttpClientModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, UserService],
 
   bootstrap: [AppComponent]
 })

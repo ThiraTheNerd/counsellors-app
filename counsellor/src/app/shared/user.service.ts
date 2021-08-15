@@ -17,6 +17,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
+  getStatus() {
+    throw new Error('Method not implemented.');
+  }
   // private loggedIn: boolean = false;
 
   constructor(private http: HttpClient, private router: Router,) { }
@@ -27,6 +30,11 @@ export class UserService {
       password
     }, httpOptions);
   }
+
+
+  // login(userdata: any): Observable<any> {
+  //   return this.http.post(AUTH_API + 'login', userdata)
+  // }
 
   register(username: string, email: string, firstName: string, lastName: string, password: string, role:string): Observable<any> {
     return this.http.post(AUTH_API + 'register', {

@@ -7,6 +7,9 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
+  setItem(accessToken: any) {
+    throw new Error('Method not implemented.');
+  }
   constructor() { }
 
   signOut(): void {

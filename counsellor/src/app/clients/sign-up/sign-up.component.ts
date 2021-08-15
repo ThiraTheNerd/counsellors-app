@@ -25,7 +25,10 @@ export class SignUpComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -38,10 +41,12 @@ export class SignUpComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.toastr.success('Signup Successful')
         this.router.navigate(['/login']);
         
       },
       err => {
+        this.toastr.warning('Something went wrong', 'Error')
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }

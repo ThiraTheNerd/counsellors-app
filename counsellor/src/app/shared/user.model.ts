@@ -9,7 +9,8 @@ export class User {
 }
 
 export class Appointment {
-    _id!: string;
+    user!: string;
+    id!: string;
     date!: Date;
     timeStart!: string;
     timeEnd!: string;
@@ -17,16 +18,18 @@ export class Appointment {
 }
 
 
-export class Appointments{
+// export class Appointments{
 
-    date!: Date;
-    timeStart!: string;
-    timeEnd!: string;
-    message!: string;
-}
+
+//     date!: Date;
+//     timeStart!: string;
+//     timeEnd!: string;
+//     message!: string;
+// }
 
 
 export class Users{
+    username!: string;
     email!: string;
     firstName!: string;
     lastName!: string;
