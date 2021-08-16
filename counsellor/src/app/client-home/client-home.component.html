@@ -43,6 +43,13 @@
           <li>
             <a href="#">
               <img src="https://img.icons8.com/ios-glyphs/30/000000/list--v1.png" />
+              <span class="links_name">Groups</span>
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="#">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/list--v1.png" />
               <span class="links_name">Prescribed Medication</span>
             </a>
           </li>
@@ -88,25 +95,23 @@
 
     </html>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-5">
     <h2>Clients Home</h2>
 
-    <div class="home-content">
-      <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Profile</div>
-            <div class="text">{{username}}</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Spain</span>
-            </div>
-          </div>
-        
-        </div>
-      </div>
-    </div>
-      
     
+    <div class="col-md-4">
+      <h2>Groups</h2>
+      <ul class="heroes">
+        <li *ngFor="let group of groups">
+          <a routerLink="/detail/{{group.id}}">
+            <span class="badge">{{group.id}} {{group.name}}</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
   </div>
 </div>
+
+
+

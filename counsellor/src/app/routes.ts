@@ -13,6 +13,8 @@ import { ClientHomeComponent } from './client-home/client-home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ClientlistComponent } from './counsellor/clientlist/clientlist.component';
 import { MedicationComponent } from './medication/medication.component';
+import { GroupDetailComponent } from './group-detail/group-detail.component';
+import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 
 
 export const appRoutes: Routes = [
@@ -54,7 +56,14 @@ export const appRoutes: Routes = [
     { path: 'logout', component: HomeComponent },
 
 
+    { path: 'detail/:id', component: GroupDetailComponent },
+
+    { path: 'appoint/:id', component: AppointmentDetailsComponent },
+
+
     { path: '**', component: PagenotfoundComponent },
+
+    
 
     
 

@@ -102,21 +102,23 @@
 
   </div>
   <div class="col-md-6" style="margin-top:50px">
-    <table>
-      <tr>
-        <th>Username</th>
+    <!-- <table> -->
+    <!-- <tr> -->
+    <!-- <th>Username</th>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Email</th>
-      </tr>
-      <tr *ngFor="let user of userList">
-        <td>{{user.username}}</td>
-        <td>{{user.firstName}}</td>
-        <td>{{user.lastName}}</td>
-        <td>{{user.email}}</td>
-      </tr>
-    </table>
-    
+        <th>Email</th> -->
+    <!-- </tr> -->
+    <ol *NgFor="let user of userList">
+        <h1>{{user.username}}</h1>
+        <h1>{{user.firstName}} </h1>
+        <h1>{{user.lastName}}</h1>
+        <h1>{{user.email}}</h1>
+      <!-- </li> -->
+    </ol>
+    <!-- </table> -->
+
+
 
   </div>
 </div>

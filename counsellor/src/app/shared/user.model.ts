@@ -5,16 +5,18 @@ export class User {
     firstName!: string;
     lastName!: string;
     role!: string;
-    
+
 }
 
 export class Appointment {
-    user!: string;
-    id!: string;
-    date!: Date;
-    timeStart!: string;
-    timeEnd!: string;
-    message!: string;
+    constructor(
+        public user: string,
+        public id: number,
+        public date: Date,
+        public timeStart: string,
+        public timeEnd: string,
+        public message: string,
+    ){}
 }
 
 
@@ -28,16 +30,24 @@ export class Appointment {
 // }
 
 
-export class Users{
-    username!: string;
-    email!: string;
-    firstName!: string;
-    lastName!: string;
-    
+export class Users {
+    constructor(
+        public username: string,
+        public email: string,
+        public firstName: string,
+        public lastName: string
+    ) { }
+
+}
+export class Medication {
+    counsellor!: string;
+    name_of_medicine!: string;
+    details!: string;
+    client!: string;
+
 }
 
 
-
 export class Groups {
-    constructor(public name: string, public description: string, public category: string) { }
+    constructor(public name: string, public description: string, public id: number) { }
 }

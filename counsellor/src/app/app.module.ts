@@ -35,6 +35,8 @@ import { authInterceptorProviders } from './auth/auth.interceptor';
 import { CounsellorServiceService } from './counsellor/counsellor-service.service';
 import { ClientlistComponent } from './counsellor/clientlist/clientlist.component';
 import { MedicationComponent } from './medication/medication.component';
+import { GroupDetailComponent } from './group-detail/group-detail.component';
+import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 
 
 
@@ -57,6 +59,8 @@ import { MedicationComponent } from './medication/medication.component';
     ClientHomeComponent,
     ClientlistComponent,
     MedicationComponent,
+    GroupDetailComponent,
+    AppointmentDetailsComponent,
   
     
     

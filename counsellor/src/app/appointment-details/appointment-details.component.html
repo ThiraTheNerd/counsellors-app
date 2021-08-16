@@ -1,0 +1,23 @@
+<div class="container" style="margin-top:50px">
+  <div *ngIf="appointment">
+    <h2>Date {{appointment.date}}</h2>
+    <br>
+    <h2>Time Start {{appointment.timeStart}}</h2>
+    <br>
+    <h2>Time End {{appointment.timeEnd}}</h2>
+    <br>
+    <!-- <h2>Message {{appointment.message}}</h2> -->
+    <!-- <div><span>id: </span>{{group.id}}</div> -->
+
+    <h2>Message
+      <br>
+      {{appointment.message}} </h2>
+    <!-- <div>
+    <label for="group-name">Group name: </label>
+    <input id="group-name" [(ngModel)]="group.name" placeholder="Group name" />
+    <label for="group-name">Group Description: </label>
+    <input id="group-description" [(ngModel)]="group.description" placeholder="Group description" />name" />
+  </div> -->
+    <button type="button" class="btn btn-info">Schedule Session</button>
+  </div>
+</div>

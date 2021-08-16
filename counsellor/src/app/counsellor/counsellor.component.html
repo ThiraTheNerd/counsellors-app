@@ -40,19 +40,32 @@
     <td>{{appoint.message}}</td>
   </tr>
 </table> -->
-<table class="table table-striped">
+<!-- <table class="table table-striped">
+  <h2>Appointment</h2>
   <tr>
     <th scope="col">Date</th>
     <th scope="col">Time start</th>
     <th scope="col">Time End</th>
     <th scope="col">Message</th>
   </tr>
-  <tr *ngFor="let appoint of appointmentlist">
+  <tr >
     <td>{{appoint.date}}</td>
     <td>{{appoint.timeStart}}</td>
     <td>{{appoint.timeEnd}}</td>
     <td>{{appoint.message}}</td>
     <td><button type="button" class="btn btn-info">View</button></td>
     <!-- <td><button type="button" class="btn btn-info">Meet</button></td> -->
-  </tr>
-</table>
+  <!-- </tr>
+</table> --> -->
+
+<div class="col-md-4">
+  <h2>Appointmnets</h2>
+  <ul class="heroes">
+    <li *ngFor="let appoint of appointmentlist">
+      <a routerLink="/appoint/{{appoint.id}}">
+        <span class="badge">{{appoint.id}} {{appoint.date}}</span>
+      </a>
+    </li>
+  </ul>
+
+</div>

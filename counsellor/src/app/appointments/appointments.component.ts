@@ -20,7 +20,7 @@ export class AppointmentsComponent implements OnInit {
   // bookAppointment!: Appointment
 
 
-  bookAppointment = new Appointment()
+  bookAppointment = new Appointment("",0,new Date(),"","","")
 
 
 

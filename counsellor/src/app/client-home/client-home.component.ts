@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CounsellorServiceService } from '../counsellor/counsellor-service.service';
+import { Groups } from '../shared/user.model';
 
 @Component({
   selector: 'app-client-home',
@@ -10,12 +12,25 @@ export class ClientHomeComponent implements OnInit {
  
 
   username: any;
+  groups: Groups[] = [];
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private heroService: CounsellorServiceService) { }
 
-    this.username = localStorage.getItem('username')
+  // ngOnInit(): void {
 
+  //   this.username = localStorage.getItem('username')
+
+  // }
+  ngOnInit() {
+    this.getGroups();
   }
+
+  getGroups(): void {
+    this.heroService.getGroup()
+      .subscribe(groups => this.groups = groups);
+  }
+
+  
+
 }

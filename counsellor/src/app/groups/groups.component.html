@@ -91,7 +91,7 @@
   <div class="col-md-8" style="margin-top:50px">
     <div class="container">
 
-      <form (ngSubmit)='addGroup()' #appointmentForm='ngForm'>
+      <form (ngSubmit)='creategroup()' #groupForm='ngForm'>
         <div class="form-group">
           <div class="form-group">
             <label for="name">Group Name</label>
@@ -106,57 +106,12 @@
           <label for="category">Description</label>
           <textarea class="form-control" id="description" rows="4" required [(ngModel)]="newGroup.description"
             name="description" #description='ngModel'></textarea>
-          <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
-            <p>Category is required</p>
-          </div>
+
         </div>
-
-
-
-        <p>Category is required</p>
-
-
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Suicidal
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Depression
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Stress
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Marriage conflict
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Unemployment
-          </label>
-        </div>
-
-
-
 
         <br>
         <button type="submit" class="btn btn-success">Create</button>
       </form>
-
-
-
-
     </div>
 
   </div>
