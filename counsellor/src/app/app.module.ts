@@ -37,6 +37,10 @@ import { ClientlistComponent } from './counsellor/clientlist/clientlist.componen
 import { MedicationComponent } from './medication/medication.component';
 import { GroupDetailComponent } from './group-detail/group-detail.component';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
+import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
+import { GroupchatComponent } from './groupchat/groupchat.component';
+import { PrescribedComponent } from './prescribed/prescribed.component';
+import { CounsellorInputComponent } from './counsellor-input/counsellor-input.component';
 
 
 
@@ -61,6 +65,10 @@ import { AppointmentDetailsComponent } from './appointment-details/appointment-d
     MedicationComponent,
     GroupDetailComponent,
     AppointmentDetailsComponent,
+    UpdateAppointmentComponent,
+    GroupchatComponent,
+    PrescribedComponent,
+    CounsellorInputComponent,
   
     
     

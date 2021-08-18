@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Groups } from '../shared/user.model';
 import { CounsellorServiceService } from '../counsellor/counsellor-service.service';
+import { TokenStorageService } from '../taken-storage.service';
 
 
 
@@ -11,11 +12,18 @@ import { CounsellorServiceService } from '../counsellor/counsellor-service.servi
   styleUrls: ['./group-detail.component.css']
 })
 export class GroupDetailComponent implements OnInit {
-  group: Groups | undefined;
+
+  
+  group!: Groups
+  clients: string[] = [];
+  messages: string[] = [];
+  
 
   constructor(
     private route: ActivatedRoute,
     private heroService: CounsellorServiceService,
+    private router: Router,
+    private tokenStorage: TokenStorageService,
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +35,8 @@ export class GroupDetailComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     this.heroService.getGroups(id)
       .subscribe(group => this.group = group);
+    console.log(this.group);
+    
   }
 
   // goBack(): void {

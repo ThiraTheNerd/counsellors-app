@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-2">
     <!DOCTYPE html>
     <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
     <html lang="en" dir="ltr">
@@ -28,14 +28,14 @@
           <br>
 
           <li>
-            <a href="/appointments">
+            <a href="/counsellor">
               <img src="https://img.icons8.com/ios-glyphs/30/000000/property-time.png" />
               <span class="links_name">Appointments</span>
             </a>
           </li>
           <br>
           <li>
-            <a href="#">
+            <a href="/clientslist">
               <img src="https://img.icons8.com/ios-glyphs/30/000000/list--v1.png" />
               <span class="links_name">Client's list</span>
             </a>
@@ -50,19 +50,14 @@
           <br>
 
           <li>
-            <a href="#">
-              <img src="https://img.icons8.com/fluency-systems-filled/48/000000/file-prescription.png" />
-              <span class="links_name">Prescribe Medicine</span>
+            <a href="/login">
+              <img src="https://img.icons8.com/material-outlined/24/000000/logout-rounded.png" />
+              <span class="links_name">Logout</span>
             </a>
           </li>
           <br>
           <br>
-          <li>
-            <a href="#">
-              <img src="https://img.icons8.com/ios-glyphs/30/000000/overtime.png" />
-              <span class="links_name">Schedule Meeting</span>
-            </a>
-          </li>
+          
 
 
 
@@ -87,32 +82,64 @@
 
     </html>
 
+
   </div>
-  <div class="col-md-8" style="margin-top:50px">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-4" style="margin-top:50px;font-family: 'Domine' , serif;font-size: 50px;color: black;">
     <div class="container">
 
       <form (ngSubmit)='creategroup()' #groupForm='ngForm'>
+
         <div class="form-group">
-          <div class="form-group">
-            <label for="name">Group Name</label>
-            <input type="name" id="name" class="form-control" required [(ngModel)]="newGroup.name" name="name"
-              #name='ngModel'>
-            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-              <p>Group name is required</p>
-            </div>
+          <label for="name" style="font-size: 20px; color: black;font-family: 'Domine' , serif;text-align: center">Group Name</label>
+          <br>
+          <br>
+          <input type="name" id="name" class="form-control" required [(ngModel)]="newGroup.name" name="name"
+            #name='ngModel'>
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <p>Group name is required</p>
           </div>
         </div>
+        <br>
         <div class="form-group">
-          <label for="category">Description</label>
+          <label for="category"
+            style="font-size: 20px; color: black;font-family: 'Domine' , serif;text-align: center">Description</label>
+          <br>
+          <br>
           <textarea class="form-control" id="description" rows="4" required [(ngModel)]="newGroup.description"
             name="description" #description='ngModel'></textarea>
 
         </div>
-
         <br>
+        <div class="form-group">
+          <label for="name" style="font-size: 20px; color: black;font-family: 'Domine' , serif;text-align: center">Clients
+            Name</label>
+          <br>
+          <br>
+          <input type="name" id="name" class="form-control" required [(ngModel)]="newGroup.client_name" name="client_name"
+            #name='ngModel'>
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <p>Group name is required</p>
+          </div>
+        </div>
+        <br>
+        
+        <!-- <div class="form-group">
+          <select [(ngModel)]="newGroup.name" id="name" name="name" required class="form-control">
+            <option *ngFor="let user of newGroup.clients" [value]="user.client_name">
+              {{user.email}}
+            </option>
+          </select>
+        </div> -->
+        <br>
+
+        
         <button type="submit" class="btn btn-success">Create</button>
       </form>
     </div>
-
   </div>
+
+
 </div>

@@ -10,7 +10,7 @@ export class User {
 
 export class Appointment {
     constructor(
-        public user: string,
+        public name: string,
         public id: number,
         public date: Date,
         public timeStart: string,
@@ -35,7 +35,8 @@ export class Users {
         public username: string,
         public email: string,
         public firstName: string,
-        public lastName: string
+        public lastName: string,
+        
     ) { }
 
 }
@@ -49,5 +50,8 @@ export class Medication {
 
 
 export class Groups {
-    constructor(public name: string, public description: string, public id: number) { }
+    constructor(public name: string, public description: string, public id: number, public clients: ([]), public messages: ([])
+) { }
 }
+
+

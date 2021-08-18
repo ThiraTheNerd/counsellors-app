@@ -7,6 +7,7 @@
   -o-background-size: cover;
   background-size: cover;
 }
+
 .carousel-caption {
   bottom: 270px;
 }
@@ -33,7 +34,10 @@
   letter-spacing: 2px;
 }
 
-.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
   color: #fff;
 }
 
@@ -53,7 +57,8 @@
   padding: .2rem 1rem;
 }
 
-.nav-link.active,.nav-link:focus{
+.nav-link.active,
+.nav-link:focus {
   color: #fff;
 }
 
@@ -63,7 +68,8 @@
   line-height: 0.3;
 }
 
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
   color: #fff;
 }
 
@@ -75,22 +81,22 @@
 /* ignore the code below */
 
 
-.link-area
-{
-  position:fixed;
-  bottom:20px;
-  left:20px;  
-  padding:15px;
-  border-radius:40px;
-  background:tomato;
+.link-area {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 15px;
+  border-radius: 40px;
+  background: tomato;
 }
-.link-area a
-{
-  text-decoration:none;
-  color:#fff;
-  font-size:25px;
+
+.link-area a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 25px;
 }
-#navright{
+
+#navright {
   float: right;
   display: flex;
 }

@@ -1,1 +1,27 @@
-<p>medication works!</p>
+<div style="margin-top:50px;color:black;">
+   <form (ngSubmit)='prescribeMedics()' #medicationForm='ngForm' action="" style="font-size: 20px;">
+    <div class="card" >
+      <div class="card-body">
+        <div class="card-header">
+          <h1>Prescribe Medication</h1>
+        </div>
+        <!-- <div class="form-group">
+          <label for="client" style="font-size: 24px;font-family: 'Domine' , serif;">Client Name</label>
+          <input type="text" name="client" required [(ngModel)]="prescribeMedicine.counsellor" name="date"
+            placeholder="client" class="form-group">
+        </div> -->
+        <br>
+        <div class="form-control">
+          <label for="medicine" style="font-size: 24px;font-family: 'Domine' , serif;">Medicine</label>
+          <input type="text" class="form-group" name="medicine" placeholder="Name of medicine" required>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="prescription" style="font-size: 20px;font-family: 'Domine' , serif;">Medicine Prescription</label>
+          <input type=" text" name="prescription" class="form-group" style="font-size: 20px;">
+        </div>
+      </div>
+      <div class="card-footer"> <button type="button" class="btn btn-info btn-lg">Prescribe</button></div>
+    </div>
+  </form>
+</div>

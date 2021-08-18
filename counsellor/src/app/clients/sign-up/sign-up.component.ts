@@ -41,7 +41,7 @@ export class SignUpComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this.toastr.success('Signup Successful')
+        this.toastr.success('Signup Successful proceed to login')
         this.router.navigate(['/login']);
         
       },

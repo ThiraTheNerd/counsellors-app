@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.role = this.tokenStorage.getUser().roles;
+      this.role = this.tokenStorage.getUser().role;
       
     }
 
@@ -58,24 +58,24 @@ export class SignInComponent implements OnInit {
         this.tokenStorage.saveUser(data.role);
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-        console.log(data);
+        console.log(data.authenticatedUser["role"]);
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        if ((data['role']) === "is_client") {
-          this.toastr.success("SignUp succesfully")
-          this.router.navigate(['client-home']);
+        // this.isLoginFailed = false;
+        // this.isLoggedIn = true;
+        if (data.authenticatedUser['role'] === "is_counsellor") {
+          this.toastr.success("SignIn succesfully")
+          this.router.navigate(['counsellor']);
           
         }
         else {
-          this.toastr.success("SignUp succesfully")
-          this.router.navigate(['sidebar']);
+          this.toastr.success("SignIn succesfully")
+          this.router.navigate(['home']);
         }
     
       },
       
       err => {
-        this.toastr.warning("SignUp fail")
+        this.toastr.warning("SignIn fail, please provide correct login credentials")
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
       }

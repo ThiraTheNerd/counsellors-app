@@ -31,14 +31,14 @@
               <br>
 
               <li>
-                <a href="/sidebar">
+                <a href="/counsellor">
                   <img src="https://img.icons8.com/ios-glyphs/30/000000/property-time.png" />
                   <span class="links_name">Appointments</span>
                 </a>
               </li>
               <br>
               <li>
-                <a href="#">
+                <a href="/clientslist">
                   <img src="https://img.icons8.com/ios-glyphs/30/000000/list--v1.png" />
                   <span class="links_name">Client's list</span>
                 </a>
@@ -51,27 +51,10 @@
                 </a>
               </li>
               <br>
-
               <li>
-                <a href="#">
-                  <img src="https://img.icons8.com/fluency-systems-filled/48/000000/file-prescription.png" />
-                  <span class="links_name">Prescribe Medicine</span>
-                </a>
-              </li>
-              <br>
-              <br>
-              <li>
-                <a href="#">
-                  <img src="https://img.icons8.com/ios-glyphs/30/000000/overtime.png" />
-                  <span class="links_name">Schedule Meeting</span>
-                </a>
-              </li>
-              <br>
-              <br>
-              <li class="log_out">
-                <a href="#">
-                  <img src="https://img.icons8.com/material-sharp/24/000000/logout-rounded.png" />
-                  <span class="links_name">Sign out</span>
+                <a href="/login">
+                  <img src="https://img.icons8.com/material-outlined/24/000000/logout-rounded.png" />
+                  <span class="links_name">Logout</span>
                 </a>
               </li>
 
@@ -102,21 +85,69 @@
 
   </div>
   <div class="col-md-6" style="margin-top:50px">
-    <!-- <table> -->
-    <!-- <tr> -->
-    <!-- <th>Username</th>
+    <!-- <table>
+      <tr>
+        <th>Username</th>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Email</th> -->
-    <!-- </tr> -->
-    <ol *NgFor="let user of userList">
-        <h1>{{user.username}}</h1>
-        <h1>{{user.firstName}} </h1>
-        <h1>{{user.lastName}}</h1>
-        <h1>{{user.email}}</h1>
-      <!-- </li> -->
-    </ol>
-    <!-- </table> -->
+        <th>Email</th>
+        
+
+      </tr>
+      <tr *ngFor="let user of userList">
+
+        <td>{{user.username}}</td>
+        <td>{{user.firstName}} </td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        
+
+
+      </tr>
+    </table> -->
+    <table id="clients">
+      <tr>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+      <tr *ngFor="let user of userList" style="font-size: 17px; font-family: 'Domine' , serif;">
+        <td>{{user.username}}</td>
+        <td>{{user.firstName}} </td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+      </tr>
+    </table>
+    <!-- <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table> -->
 
 
 

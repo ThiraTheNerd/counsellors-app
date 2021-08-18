@@ -15,16 +15,15 @@ import { ClientlistComponent } from './counsellor/clientlist/clientlist.componen
 import { MedicationComponent } from './medication/medication.component';
 import { GroupDetailComponent } from './group-detail/group-detail.component';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
+import { PrescribedComponent } from './prescribed/prescribed.component';
 
 
 export const appRoutes: Routes = [
     
-    { path: 'home', component: HomeComponent },
     
-    { path: 'sidebar', component: SidebarComponent },
 
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-
+    
+    
     {
         path: 'signup', component: ClientsComponent,
         children: [{ path: '', component: SignUpComponent }]
@@ -35,6 +34,12 @@ export const appRoutes: Routes = [
         children: [{ path: '', component: SignInComponent }]
     },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
+
+    { path: '', redirectTo: '/home', pathMatch: 'full' },    
+
+    { path: 'home', component: HomeComponent },
+
+    { path: 'counsellor', component: SidebarComponent },
 
     { path: 'client-profile', component: ClientProfileComponent },
     
@@ -59,6 +64,12 @@ export const appRoutes: Routes = [
     { path: 'detail/:id', component: GroupDetailComponent },
 
     { path: 'appoint/:id', component: AppointmentDetailsComponent },
+
+
+    { path: 'prescribeMedics', component: PrescribedComponent },
+
+
+    // { path: 'medication', component: MedicationComponent },
 
 
     { path: '**', component: PagenotfoundComponent },

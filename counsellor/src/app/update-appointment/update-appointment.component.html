@@ -37,24 +37,18 @@
             <a href="/client-home">
 
               <img src="https://img.icons8.com/android/24/000000/google-groups.png" />
-              <span class="links_name">Groups</span>
+              <span class="links_name">Group Members</span>
             </a>
           </li>
           <br>
           <li>
-            <a href="/prescribeMedics">
+            <a href="/groups">
               <img src="https://img.icons8.com/ios-glyphs/24/000000/list--v1.png" />
 
               <span class="links_name">Prescribed Medication</span>
             </a>
           </li>
           <br>
-          <li>
-            <a href="/login">
-              <img src="https://img.icons8.com/material-outlined/24/000000/logout-rounded.png" />
-              <span class="links_name">Logout</span>
-            </a>
-          </li>
           <!-- <li>
         <a href="#">
           <img src="https://img.icons8.com/fluency-systems-filled/48/000000/file-prescription.png"/>
@@ -94,7 +88,7 @@
 
     </html>
   </div>
-  <div class="col-md-3 "></div>
+  <!-- <div class="col-md-3 "></div>
   <div class="col-md-4 " style="margin-top:50px;">
     <form (ngSubmit)='bookSession()' #appointmentForm='ngForm' style="font-family: 'Domine', serif; font-size: 30px;">
       <div class="form-group">
@@ -120,21 +114,21 @@
         <div class="form-group" style="width: 200px;">
           <label for="timeStart" style="font-size: 20px; color: black;">From</label>
           <input type="time" required class="form-control" id="timeStart" [(ngModel)]="bookAppointment.timeStart"
-            name="timeStart" #timeStart='ngModel'>
+            name="timeStart" #timeStart='ngModel'> -->
           <!-- Dispaly {{newGoal.name}} -->
-          <div [hidden]="timeStart.valid || timeStart.pristine" class="alert alert-danger">
+          <!-- <div [hidden]="timeStart.valid || timeStart.pristine" class="alert alert-danger">
             <p>Time is required</p>
           </div>
         </div>
         <div class="form-group" style="width: 200px;">
           <label for="timeEnd" style="font-size: 20px; color: black;">To</label>
           <input type="time" required class="form-control" id="timeEnd" [(ngModel)]="bookAppointment.timeEnd"
-            name="timeEnd" #timeEnd='ngModel'>
+            name="timeEnd" #timeEnd='ngModel'> -->
           <!-- Dispaly {{newGoal.name}} -->
           <!-- <div [hidden]="timeEnd.valid || timeEnd.pristine" class="alert alert-danger">
                 <p>Time is required</p>
             </div> -->
-        </div>
+        <!-- </div>
       </div>
       <div class="form-group">
         <label for="message" style="font-size: 20px; color: black; margin-bottom:20px;">Issue</label>
@@ -146,5 +140,5 @@
       </div><br>
       <button type="submit" class="btn btn-success">Book</button>
     </form>
-  </div>
+  </div> -->
 </div>

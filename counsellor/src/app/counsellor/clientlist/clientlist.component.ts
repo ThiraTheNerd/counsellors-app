@@ -11,12 +11,13 @@ export class ClientlistComponent implements OnInit {
 
   constructor(private counsellorService: CounsellorServiceService,) { }
 
-  userList!: Users[];
+  userList: Users[]= [];
 
 
   ngOnInit(): void {
     this.counsellorService.getClientList().subscribe(
       data => {
+        console.log(data)
         this.userList = data;
       }
     );

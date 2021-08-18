@@ -34,33 +34,11 @@ export class AppointmentsComponent implements OnInit {
     this.bookService.bookSession(this.bookAppointment).subscribe(data => {
       console.log(data)
     })
+    window.location.reload();
   }
-
-  // bookSession() {
-  //   this.successMsg = '';
-  //   this.errorMsg = '';
-  //   this.appointmentService.bookSession(this.date, this.timeStart, this.timeEnd, this.message,)
-  //     .subscribe((bookAppointment: Appointment) => {
-  //       this.date = new Date();
-  //       this.timeStart = '';
-  //       this.timeEnd = '';
-  //       this.message = '';
-  //       // const appointmentDate = new Date(bookAppointment.date).toDateString();
-  //       // this.successMsg = `Appointment Booked Successfully for ${appointmentDate}`;
-  //     },
-  //       (error: ErrorEvent) => {
-  //         this.errorMsg = error.error.message;
-  //       });
-  // }
-
-
-
   
 
-
-
   
-
   
 
 }

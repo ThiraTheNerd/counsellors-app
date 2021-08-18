@@ -1,71 +1,21 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col s8 offset-s2">
-      <div class="card grey lighten-2">
-        <div class="card-tabs">
-          <ul class="tabs tabs-fixed-width tabs-transparent">
-            <li class="tab">
-              <a routerLink='/login' routerLinkActive='active'>Sign In</a>
-            </li>
-            <li class="tab">
-              <a routerLink='/signup' routerLinkActive='active'>Sign Up</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card-content white">
-          <div class="row">
-            <router-outlet></router-outlet>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
+<!-- <div class="col-md-4"> -->
+<div style="background-color: #fff;font-family: 'Domine' , serif; color: black;">
+  <h1 style="text-align: center;font-size: 30px;margin-left: 20px;">Appointments</h1>
+  <table mdbTable>
 
+    <tbody>
+      <tr mdbTableCol *ngFor="let appoint of appointmentlist">
 
+        <th scope="row">{{appoint.id}}</th>
 
-<!-- <table>
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Time start</th>
-    <th>Time End</th>
-    <th>Message</th>
-  </tr>
-  <tr *ngFor="let appoint of appointmentlist">
-    <td>{{appoint.user}}</td>
-    <td>{{appoint.date}}</td>
-    <td>{{appoint.timeStart}}</td>
-    <td>{{appoint.timeEnd}}</td>
-    <td>{{appoint.message}}</td>
-  </tr>
-</table> -->
-<!-- <table class="table table-striped">
-  <h2>Appointment</h2>
-  <tr>
-    <th scope="col">Date</th>
-    <th scope="col">Time start</th>
-    <th scope="col">Time End</th>
-    <th scope="col">Message</th>
-  </tr>
-  <tr >
-    <td>{{appoint.date}}</td>
-    <td>{{appoint.timeStart}}</td>
-    <td>{{appoint.timeEnd}}</td>
-    <td>{{appoint.message}}</td>
-    <td><button type="button" class="btn btn-info">View</button></td>
-    <!-- <td><button type="button" class="btn btn-info">Meet</button></td> -->
-  <!-- </tr>
-</table> --> -->
+        <td style="font: size 24px;color: black;">{{appoint.name}}</td>
 
-<div class="col-md-4">
-  <h2>Appointmnets</h2>
-  <ul class="heroes">
-    <li *ngFor="let appoint of appointmentlist">
-      <a routerLink="/appoint/{{appoint.id}}">
-        <span class="badge">{{appoint.id}} {{appoint.date}}</span>
-      </a>
-    </li>
-  </ul>
+        <a routerLink="/appoint/{{appoint.id}}">
 
+          <img src="https://img.icons8.com/ios/30/000000/edit-property.png" />
+        </a>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<!-- </div> -->

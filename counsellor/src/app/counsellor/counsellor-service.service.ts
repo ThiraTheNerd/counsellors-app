@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Appointment, Groups, Users } from '../shared/user.model';
+import { Appointment, Groups, Medication, Users } from '../shared/user.model';
 import { catchError, tap } from 'rxjs/operators';
 
 const httpOptions = {
@@ -13,8 +13,10 @@ const httpOptions = {
 export class CounsellorServiceService {
   api_url = "http://127.0.0.1:8000/";
   group_url = "http://127.0.0.1:8000/api/groups";
-  users_url = "http://127.0.0.1:8000/users";
+  users_url = "http://127.0.0.1:8000/clients";
   appointment_url = "http://127.0.0.1:8000/api/book";
+  medication_url = "http://127.0.0.1:8000/api/medicine/";
+
 
   constructor(private httpclient: HttpClient) { }
   
@@ -62,7 +64,7 @@ export class CounsellorServiceService {
   
 
   getClientList(): Observable<Users[]> {
-    return this.httpclient.get<Users[]>(this.appointment_url)
+    return this.httpclient.get<Users[]>(this.users_url)
   }
 
    
@@ -79,5 +81,20 @@ export class CounsellorServiceService {
   getAppointments(id: number): Observable<Appointment> {
     const url = `${this.appointment_url}/${id}/`;
     return this.httpclient.get<Appointment>(url)
+  }
+
+
+
+  prescribeMedic(medication: Medication): Observable<any> {
+    const headers = { 'content-type': 'application/json', 'Authorization': 'Bearer access' }
+    const body = JSON.stringify(medication);
+    console.log(body)
+    return this.httpclient.post(this.medication_url, body, { 'headers': headers, observe: 'response' }).pipe(
+      catchError((err) => {
+        console.error(err);
+        throw err;
+      }
+      )
+    )
   }
 }
