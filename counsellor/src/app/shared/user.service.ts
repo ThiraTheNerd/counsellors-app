@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 
-const AUTH_API = "http://127.0.0.1:8000/";
-const MEDIC_API = "http://127.0.0.1:8000/"
+const AUTH_API = "https://jose-counsellor.herokuapp.com/";
+const MEDIC_API = "https://jose-counsellor.herokuapp.com/"
 
 
 
@@ -37,7 +37,7 @@ export class UserService {
   //   return this.http.post(AUTH_API + 'login', userdata)
   // }
 
-  register(username: string, email: string, firstName: string, lastName: string, password: string, role:(["is_client"])): Observable<any> {
+  register(username: string, email: string, firstName: string, lastName: string, password: string, role:"is_client"): Observable<any> {
     return this.http.post(AUTH_API + 'register', {
       username,
       email,
@@ -47,6 +47,18 @@ export class UserService {
       role,
     }, httpOptions);
   }
+  // this.authService.register(username, email, phone, role = 'is_patient', password).subscribe(
+  //   (data) => {
+  //     console.log(data);
+  //     this.isSuccessful = true;
+  //     this.isSignUpFailed = false;
+  //     this.router.navigate(['home/signin']);
+  //   },
+  //   (err) => {
+  //     this.errorMessage = err.error.message;
+  //     this.isSignUpFailed = true;
+  //   }
+  // );
 
   signOut(): void {
     localStorage.clear();

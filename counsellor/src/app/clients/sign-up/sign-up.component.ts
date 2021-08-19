@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit {
     firstName: null,
     lastName: null,
     password: null,
-    role: null,
+    role: "is_client",
   };
   isSuccessful = false;
   isSignUpFailed = false;

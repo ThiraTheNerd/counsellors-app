@@ -11,11 +11,11 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CounsellorServiceService {
-  api_url = "http://127.0.0.1:8000/";
-  group_url = "http://127.0.0.1:8000/api/groups";
-  users_url = "http://127.0.0.1:8000/clients";
-  appointment_url = "http://127.0.0.1:8000/api/book";
-  medication_url = "http://127.0.0.1:8000/api/medicine/";
+  api_url = "https://jose-counsellor.herokuapp.com/";
+  group_url = "https://jose-counsellor.herokuapp.com/api/groups";
+  users_url = "https://jose-counsellor.herokuapp.com/clients";
+  appointment_url = "https://jose-counsellor.herokuapp.com/api/book";
+  medication_url = "https://jose-counsellor.herokuapp.com/api/medicine/";
 
 
 

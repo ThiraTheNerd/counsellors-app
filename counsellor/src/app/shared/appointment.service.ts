@@ -13,7 +13,7 @@ const httpOptions = {
   
 export class AppointmentService {
 
-  api_url = "http://127.0.0.1:8000/";
+  api_url = "https://jose-counsellor.herokuapp.com/";
   
 
   constructor(private http: HttpClient) { }
