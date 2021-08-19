@@ -1,4 +1,4 @@
-<div class="row" style="font-family: 'Domine', serif;">
+<div class="row">
   <div class="col-md-2">
     <!DOCTYPE html>
     <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
@@ -13,66 +13,66 @@
     </head>
 
     <body>
+
       <div class="sidebar">
+
         <div class="logo-details">
-          <img src="https://img.icons8.com/ios-filled/30/000000/mental-health.png" />
-          <span class="logo_name" style="font-size:20px;">Client</span>
+          <img src="https://img.icons8.com/ios-filled/50/000000/mental-health.png" />
+          <span class="logo_name" style="font-size:30px;">Counsellor</span>
         </div>
         <ul class="nav-links">
           <li>
             <a href="/home" class="active">
               <img src="https://img.icons8.com/material-sharp/24/000000/home.png" />
-              <span class="links_name"> Home</span>
+              <span class="links_name">Home</span>
             </a>
           </li>
           <br>
-          <li>
-            <a href="/appointments">
-              <img src="https://img.icons8.com/ios-glyphs/24/000000/property-time.png" />
-              <span class="links_name"> Book Session</span>
-            </a>
-          </li>
-          <br>
-          <li>
-            <a href="/client-home">
 
-              <img src="https://img.icons8.com/android/24/000000/google-groups.png" />
-              <span class="links_name">Group Members</span>
+          <li>
+            <a href="/counsellor">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/property-time.png" />
+              <span class="links_name">Appointments</span>
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="#">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/list--v1.png" />
+              <span class="links_name">Client's list</span>
             </a>
           </li>
           <br>
           <li>
             <a href="/groups">
-              <img src="https://img.icons8.com/ios-glyphs/24/000000/list--v1.png" />
-
-              <span class="links_name">Prescribed Medication</span>
+              <img src="https://img.icons8.com/android/24/000000/google-groups.png" />
+              <span class="links_name">Create Groups</span>
             </a>
           </li>
           <br>
+         
           <!-- <li>
-        <a href="#">
-          <img src="https://img.icons8.com/fluency-systems-filled/48/000000/file-prescription.png"/>
-          <span class="links_name">Prescribe Medicine</span>
-        </a>
-      </li> -->
-          <br>
-          <br>
-          <!-- <li>
-        <a href="#">
-          <img src="https://img.icons8.com/ios-glyphs/30/000000/overtime.png" />
-          <span class="links_name">Schedule Meeting</span>
-        </a>
-      </li> -->
-          <br>
-          <br>
-          <li class="log_out">
             <a href="#">
-              <img src="https://img.icons8.com/material-sharp/24/000000/logout-rounded.png" />
-              <span class="links_name">Sign out</span>
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/overtime.png" />
+              <span class="links_name">Schedule Meeting</span>
+            </a>
+          </li> -->
+          <br>
+          <br>
+          <li>
+            <a href="/login">
+              <img src="https://img.icons8.com/material-outlined/24/000000/logout-rounded.png" />
+              <span class="links_name">Logout</span>
             </a>
           </li>
+
+
+
         </ul>
       </div>
+
+
+
       <script>
         let sidebar = document.querySelector(".sidebar");
         let sidebarBtn = document.querySelector(".sidebarBtn");
@@ -84,61 +84,35 @@
             sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
         }
       </script>
+
     </body>
 
     </html>
+
   </div>
-  <!-- <div class="col-md-3 "></div>
-  <div class="col-md-4 " style="margin-top:50px;">
-    <form (ngSubmit)='bookSession()' #appointmentForm='ngForm' style="font-family: 'Domine', serif; font-size: 30px;">
-      <div class="form-group">
-        <label for="date" style="font-size: 20px; color: black;">Your Name</label>
-        <input type="name" id="name" class="form-control" required [(ngModel)]="bookAppointment.name" name="name"
-          #name='ngModel'>
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-          <p>Name is required</p>
+  <div class="col-md-3"></div>
+  <div class="col-md-4">
+    <div class="container custom-container"style="margin-top:50px">
+      <div class="col-md-12">
+        <h3 class="mb-3 text-center"style="font-family: 'Domine' , serif;font-size:30px">Update Appointment</h3>
+        <h3></h3>
+        <div class="form-group">
+          <input type="date" [(ngModel)]="appointmentData.date" class="form-control" placeholder="Date">
+        </div>
+        <div class="form-group">
+          <input type="time" [(ngModel)]="appointmentData.timeStart" class="form-control" placeholder="TimeStart">
+        </div>
+        <div class="form-group">
+          <input type="time" [(ngModel)]="appointmentData.timeEnd" class="form-control" placeholder="Time End">
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="appointmentData.message" class="form-control" placeholder="Message">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block"
+            (click)="updateAppointment(appointmentData.id,appointmentData)">Schedule Appointment</button>
         </div>
       </div>
-      <br>
-      <div class="form-group">
-        <div class="form-group" style="width: 200px;">
-          <label for="date" style="font-size: 20px; color: black;">Date</label>
-          <input type="date" id="date" class="form-control" required [(ngModel)]="bookAppointment.date" name="date"
-            #date='ngModel'>
-          <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
-            <p>Date is required</p>
-          </div>
-        </div>
-      </div>
-      <div style="display:flex; justify-content: space-between;">
-        <div class="form-group" style="width: 200px;">
-          <label for="timeStart" style="font-size: 20px; color: black;">From</label>
-          <input type="time" required class="form-control" id="timeStart" [(ngModel)]="bookAppointment.timeStart"
-            name="timeStart" #timeStart='ngModel'> -->
-          <!-- Dispaly {{newGoal.name}} -->
-          <!-- <div [hidden]="timeStart.valid || timeStart.pristine" class="alert alert-danger">
-            <p>Time is required</p>
-          </div>
-        </div>
-        <div class="form-group" style="width: 200px;">
-          <label for="timeEnd" style="font-size: 20px; color: black;">To</label>
-          <input type="time" required class="form-control" id="timeEnd" [(ngModel)]="bookAppointment.timeEnd"
-            name="timeEnd" #timeEnd='ngModel'> -->
-          <!-- Dispaly {{newGoal.name}} -->
-          <!-- <div [hidden]="timeEnd.valid || timeEnd.pristine" class="alert alert-danger">
-                <p>Time is required</p>
-            </div> -->
-        <!-- </div>
-      </div>
-      <div class="form-group">
-        <label for="message" style="font-size: 20px; color: black; margin-bottom:20px;">Issue</label>
-        <textarea class="form-control" id="message" rows="4" required [(ngModel)]="bookAppointment.message"
-          name="message" #message='ngModel'></textarea>
-        <div [hidden]="message.valid || message.pristine" class="alert alert-danger">
-          <p>Issue description is required</p>
-        </div>
-      </div><br>
-      <button type="submit" class="btn btn-success">Book</button>
-    </form>
-  </div> -->
+    </div>
+  </div>
 </div>

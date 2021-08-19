@@ -31,12 +31,14 @@ export class AppointmentsComponent implements OnInit {
 
 
   bookSession() {
-    this.bookService.bookSession(this.bookAppointment).subscribe(data => {
-      console.log(data)
-    })
-    window.location.reload();
+    if (window.confirm('Are you sure, you want to book an appointment?')) {
+      this.bookService.bookSession(this.bookAppointment).subscribe(data => {
+        console.log(data)
+      })
+      window.location.reload();
+    }
   }
-  
+
 
   
   

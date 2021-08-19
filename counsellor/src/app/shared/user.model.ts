@@ -55,3 +55,11 @@ export class Groups {
 }
 
 
+export class Clients {
+    constructor(public client: string) { }
+}
+export class Messages {
+    constructor(public message: string, public client: string) { }
+}
+
+

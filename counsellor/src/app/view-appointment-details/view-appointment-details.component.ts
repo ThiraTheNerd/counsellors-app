@@ -4,11 +4,11 @@ import { CounsellorServiceService } from '../counsellor/counsellor-service.servi
 import { Appointment } from '../shared/user.model';
 
 @Component({
-  selector: 'app-appointment-details',
-  templateUrl: './appointment-details.component.html',
-  styleUrls: ['./appointment-details.component.css']
+  selector: 'app-view-appointment-details',
+  templateUrl: './view-appointment-details.component.html',
+  styleUrls: ['./view-appointment-details.component.css']
 })
-export class AppointmentDetailsComponent implements OnInit {
+export class ViewAppointmentDetailsComponent implements OnInit {
 
   appointment!: Appointment;
 
@@ -27,14 +27,5 @@ export class AppointmentDetailsComponent implements OnInit {
     this.appointmentDetails.getAppointments(id)
       .subscribe(appointment => this.appointment = appointment);
   }
-
-  // schedule(id: number): void {
-  //   this.appointmentDetails.updateAppointment(this.appointment, id)
-  //     .subscribe(data => {
-  //       console.log(data);
-  //     });
-
-    
-  // }
 
 }

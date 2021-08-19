@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CounsellorServiceService } from '../counsellor/counsellor-service.service';
 import { Groups, Users } from '../shared/user.model';
 
@@ -16,7 +17,9 @@ export class GroupsComponent implements OnInit {
     client_name:null
   }
   
-  constructor(private bookService: CounsellorServiceService, private counsellorService: CounsellorServiceService,) { }
+  constructor(private bookService: CounsellorServiceService,
+    private counsellorService: CounsellorServiceService,
+    private toastr: ToastrService,) { }
 
   ngOnInit(): void {
     this.counsellorService.getClientList().subscribe(
@@ -28,6 +31,7 @@ export class GroupsComponent implements OnInit {
   }
 
   creategroup() {
+    this.toastr.success("Group created succesfully")
     this.bookService.creategroups(this.newGroup).subscribe(data => {
       console.log(data)
     })

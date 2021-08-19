@@ -28,7 +28,7 @@
           <br>
           <li>
             <a href="/appointments">
-              <img src="https://img.icons8.com/ios-glyphs/30/000000/property-time.png" />
+              <img src="https://img.icons8.com/ios-glyphs/24/000000/property-time.png" />
               <span class="links_name">Book Session</span>
             </a>
           </li>
@@ -40,6 +40,7 @@
             </a>
           </li>
           <br>
+          
           <li>
             <a href="/viewAppointments">
               <img src="https://img.icons8.com/material-outlined/24/000000/new-view.png" />
@@ -71,44 +72,41 @@
 
     </html>
   </div>
-
   <div class="col-md-3"></div>
   <div class="col-md-4">
-    <!-- <div class="container" style="margin-top:50px">
-      <div *ngIf="group">
-        <h2>Group Name {{group.name | uppercase}}</h2> -->
-    <!-- <div><span>id: </span>{{group.id}}</div> -->
-    <!-- <h2>Description
+
+    <div class="container" style="margin-top:50px">
+      <div *ngIf="appointment">
+        <div class="card">
+          <div class="card-header">
+            <h2 style="text-align: center;">Client: {{appointment.id}} {{appointment.name}}</h2>
+          </div>
+          <div class="card-body">
+            <br>
+            <div style="display: flex; justify-content: space-between;">
+                <h2>Date
+                  <br>{{appointment.date}}
+                </h2>
+              <h2>Time Start
+                <br>{{appointment.timeStart}}
+              </h2>
+              <br>
+              <h2>Time End
+                <br>{{appointment.timeEnd}}
+              </h2>
+              <br>
+            </div>
+            <br>
+            <h2>Counsellor's Message/Prescription</h2>
+              <br>
+              <h4>{{appointment.message}} </h4>
+          </div>
+
           <br>
-          {{group.description}} </h2>
-        <h2>{{group.messages}}</h2>
-
-        <div *ngIF='clients'>
-          <div *ngFor='let client of clients'>
-            <h1>{{client.client}}</h1>
-          </div>
-        </div> -->
-
-    <!-- <div *ngIf='messages'>
-          <div *ngFor='let message of messages'>
-            <p>{{message.message}} {{message.client}}</p>
-          </div>
+          
         </div>
-
-      </div>
-    </div> -->
-
-    <div class="card" style="width: 18rem;" style="margin-top:50px;font-size: 50px;">
-      <div class="card-body">
-        <h2 class="card-title" style="text-align:center">Group Name: {{group.name | uppercase}}</h2>
-        <h4 class="card-subtitle mb-2 text-muted"style="text-align:center">Description</h4>
-        <p class="card-text" style="text-align:center">
-          {{group.description}}.
-        </p>
-        <!-- <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a> -->
       </div>
     </div>
-  </div>
 
+  </div>
 </div>

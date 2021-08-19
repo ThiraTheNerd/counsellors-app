@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Appointment, Groups, Medication, Users } from '../shared/user.model';
-import { catchError, tap } from 'rxjs/operators';
+import { Appointment, Clients, Groups, Medication, Messages, Users } from '../shared/user.model';
+import { Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +16,12 @@ export class CounsellorServiceService {
   users_url = "http://127.0.0.1:8000/clients";
   appointment_url = "http://127.0.0.1:8000/api/book";
   medication_url = "http://127.0.0.1:8000/api/medicine/";
+
+
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
 
   constructor(private httpclient: HttpClient) { }
@@ -77,13 +83,22 @@ export class CounsellorServiceService {
      
   }
 
-
   getAppointments(id: number): Observable<Appointment> {
     const url = `${this.appointment_url}/${id}/`;
     return this.httpclient.get<Appointment>(url)
   }
+  updateAppointment(id: string, appointment: any) {
+    return this.httpclient.patch<Appointment>(this.appointment_url + "/" + id + "/",
+      JSON.stringify(appointment), this.httpOptions);
+  }
 
+  // return this.httpClient.put<User>(this.endpoint + '/users/' + id
+  //   , JSON.stringify(data), this.httpHeader)
 
+  // updateAppointments(id: number): Observable<Appointment> {
+  //   const url = `${this.appointment_url}/${id}/`;
+  //   return this.httpclient.patch<Appointment>(url)
+  // }
 
   prescribeMedic(medication: Medication): Observable<any> {
     const headers = { 'content-type': 'application/json', 'Authorization': 'Bearer access' }
@@ -97,4 +112,36 @@ export class CounsellorServiceService {
       )
     )
   }
+  // updateAppointment(id: number, appointment: string): Observable<Appointment> {
+    
+  //   return this.httpclient.post<Appointment>(this.appointment_url + id, JSON.stringify(appointment),httpOptions)
+    
+  // }
+  // HttpClient API delete() method => Delete appointment 
+  deleteAppointment(id:number) {
+    return this.httpclient.delete<Appointment>(this.appointment_url + id, this.httpOptions)
+    
+      
+  }
+
+
+  // HttpClient API get() method => Fetch employee
+  getAppointment(id: number): Observable<Appointment> {
+    return this.httpclient.get<Appointment>(this.appointment_url +"/"+ id +"/")
+      
+  }
+
+
+  getClients(id: number): Observable<Clients[]> {
+    const url = `${this.group_url}/${id}`;
+    return this.httpclient.get<Clients[]>(url)
+  }
+
+  getMessages(id: number): Observable<Messages[]> {
+    const url = `${this.group_url}/${id}`;
+    return this.httpclient.get<Messages[]>(url)
+
+  }
+
+
 }

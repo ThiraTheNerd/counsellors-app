@@ -1,4 +1,4 @@
-<div class="row" style="font-family: 'Domine', serif;">
+<div class="row">
   <div class="col-md-2">
     <!DOCTYPE html>
     <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
@@ -88,62 +88,32 @@
           } else
             sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
         }
+
       </script>
     </body>
 
     </html>
   </div>
-  <div class="col-md-3 "></div>
-  <div class="col-md-4 " style="margin-top:50px;">
-    <form (ngSubmit)='bookSession()' #appointmentForm='ngForm' style="font-family: 'Domine', serif; font-size: 30px;">
-      <div class="form-group">
-        <label for="date" style="font-size: 20px; color: black;">Your Name</label>
-        <input type="name" id="name" class="form-control" required [(ngModel)]="bookAppointment.name" name="name"
-          #name='ngModel'>
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-          <p>Name is required</p>
-        </div>
-      </div>
-      <br>
-      <div class="form-group">
-        <div class="form-group" style="width: 200px;">
-          <label for="date" style="font-size: 20px; color: black;">Date</label>
-          <input type="date" id="date" class="form-control" required [(ngModel)]="bookAppointment.date" name="date"
-            #date='ngModel'>
-          <div [hidden]="date.valid || date.pristine" class="alert alert-danger">
-            <p>Date is required</p>
-          </div>
-        </div>
-      </div>
-      <div style="display:flex; justify-content: space-between;">
-        <div class="form-group" style="width: 200px;">
-          <label for="timeStart" style="font-size: 20px; color: black;">From</label>
-          <input type="time" required class="form-control" id="timeStart" [(ngModel)]="bookAppointment.timeStart"
-            name="timeStart" #timeStart='ngModel'>
-          <!-- Dispaly {{newGoal.name}} -->
-          <div [hidden]="timeStart.valid || timeStart.pristine" class="alert alert-danger">
-            <p>Time is required</p>
-          </div>
-        </div>
-        <div class="form-group" style="width: 200px;">
-          <label for="timeEnd" style="font-size: 20px; color: black;">To</label>
-          <input type="time" required class="form-control" id="timeEnd" [(ngModel)]="bookAppointment.timeEnd"
-            name="timeEnd" #timeEnd='ngModel'>
-          <!-- Dispaly {{newGoal.name}} -->
-          <!-- <div [hidden]="timeEnd.valid || timeEnd.pristine" class="alert alert-danger">
-                <p>Time is required</p>
-            </div> -->
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="message" style="font-size: 20px; color: black; margin-bottom:20px;">Issue</label>
-        <textarea class="form-control" id="message" rows="4" required [(ngModel)]="bookAppointment.message"
-          name="message" #message='ngModel'></textarea>
-        <div [hidden]="message.valid || message.pristine" class="alert alert-danger">
-          <p>Issue description is required</p>
-        </div>
-      </div><br>
-      <button type="submit" class="btn btn-success">Book</button>
-    </form>
+  <div class="col-md-3"></div>
+  <div class="col-md-4">
+    <div style="font-family: 'Domine' , serif; color: black;">
+      <h1 style="text-align: center;font-size: 30px;margin-left: 20px; margin-top: 30px;">Updated Appointments</h1>
+      <table mdbTable>
+
+        <tbody>
+          <tr mdbTableCol *ngFor="let appoint of appointmentlist">
+
+            <th scope="row"style="padding-left: 10px">{{appoint.id}}</th>
+
+            <td style="font: size 24px;color: black;">{{appoint.name}}</td>
+
+            <a routerLink="/updatedappoint/{{appoint.id}}">
+
+              <img src="https://img.icons8.com/ios/30/000000/edit-property.png" />
+            </a>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

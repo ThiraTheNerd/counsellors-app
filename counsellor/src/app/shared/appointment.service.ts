@@ -14,6 +14,7 @@ const httpOptions = {
 export class AppointmentService {
 
   api_url = "http://127.0.0.1:8000/";
+  
 
   constructor(private http: HttpClient) { }
 
@@ -43,7 +44,7 @@ export class AppointmentService {
     )
   }
   updateAppointment(appointment: Appointment): Observable<Appointment> {
-    return this.http.put<Appointment>(this.api_url, appointment, httpOptions)
+    return this.http.patch<Appointment>(this.api_url, appointment, httpOptions)
     console.log(appointment)
   }
   deleteAppointment(id: number): Observable<unknown> {

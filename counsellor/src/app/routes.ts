@@ -16,6 +16,9 @@ import { MedicationComponent } from './medication/medication.component';
 import { GroupDetailComponent } from './group-detail/group-detail.component';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 import { PrescribedComponent } from './prescribed/prescribed.component';
+import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
+import { ViewAppointmentComponent } from './view-appointment/view-appointment.component';
+import { ViewAppointmentDetailsComponent } from './view-appointment-details/view-appointment-details.component';
 
 
 export const appRoutes: Routes = [
@@ -66,10 +69,18 @@ export const appRoutes: Routes = [
     { path: 'appoint/:id', component: AppointmentDetailsComponent },
 
 
+    { path: 'updatedappoint/:id', component: ViewAppointmentDetailsComponent },
+
+
     { path: 'prescribeMedics', component: PrescribedComponent },
 
 
-    // { path: 'medication', component: MedicationComponent },
+
+
+    { path: 'updateAppointment/:id', component: UpdateAppointmentComponent },
+
+
+    { path: 'viewAppointments', component: ViewAppointmentComponent },
 
 
     { path: '**', component: PagenotfoundComponent },

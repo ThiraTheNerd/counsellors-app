@@ -41,6 +41,8 @@ import { UpdateAppointmentComponent } from './update-appointment/update-appointm
 import { GroupchatComponent } from './groupchat/groupchat.component';
 import { PrescribedComponent } from './prescribed/prescribed.component';
 import { CounsellorInputComponent } from './counsellor-input/counsellor-input.component';
+import { ViewAppointmentComponent } from './view-appointment/view-appointment.component';
+import { ViewAppointmentDetailsComponent } from './view-appointment-details/view-appointment-details.component';
 
 
 
@@ -69,6 +71,8 @@ import { CounsellorInputComponent } from './counsellor-input/counsellor-input.co
     GroupchatComponent,
     PrescribedComponent,
     CounsellorInputComponent,
+    ViewAppointmentComponent,
+    ViewAppointmentDetailsComponent,
   
     
     

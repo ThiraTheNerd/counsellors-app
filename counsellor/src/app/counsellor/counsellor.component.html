@@ -1,10 +1,12 @@
 <!-- <div class="col-md-4"> -->
 <div style="background-color: #fff;font-family: 'Domine' , serif; color: black;">
-  <h1 style="text-align: center;font-size: 30px;margin-left: 20px;">Appointments</h1>
+  <h1 style="text-align: center;font-size: 30px;margin-left: 20px; padding-top: 20px">Appointments</h1>
+  <!-- <h4>{{appointmentlist.length}}Total Appointments</h4> -->
   <table mdbTable>
 
     <tbody>
       <tr mdbTableCol *ngFor="let appoint of appointmentlist">
+        <!-- <h4>{{appointmentlist.length}}Total Appointments</h4> -->
 
         <th scope="row">{{appoint.id}}</th>
 
